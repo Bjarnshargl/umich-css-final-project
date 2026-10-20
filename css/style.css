@@ -1,0 +1,35 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 25px;
+    padding: 25px;
+    background-image: linear-gradient(aliceblue, darkslateblue);
+    border-style: solid;
+    border-color: darkslateblue;
+}
+
+nav button {
+    font-family: fantasy;
+    font-size: larger;
+    color:darkslateblue;
+    border-color: darkslateblue;
+    background-color:antiquewhite;
+}
+
+nav button a {
+    text-decoration: none;
+}
+
+h1, h2, h3, div {
+    margin-left: 25px;
+}
+
+.listing {
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    color: darkslateblue;
+    border-style: solid;
+    margin: 25px;
+    padding: 25px;
+}
