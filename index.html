@@ -9,17 +9,51 @@
 </head>
 
 <body>
-    <nav>
-        <button><a href="index.html" alt="Back to the starting page">&#127968; Home</a></button>
-        <button>Site One</button>
-        <button>Site Two</button>
-        <button>Site Three</button>
-    </nav>
-    <h1>This was the CSS code I used for my litte website</h1>
+    <a href="#main-content" class="skip-to-main-content">Skip to main content</a>
+    <div class="container">
+        <nav class="navigation">
+            <a href="index.html">&#127968; Home</a>
+            <a href="site1.html">Site One</a>
+            <a href="site2.html">Site Two</a>
+            <a href="site3.html">Site Three</a>
+        </nav>
 
-<pre>
+        <img src="images/logo.png" class="logo" alt="A logo cat" width="150">
+
+
+        <main id="main-content" class="main">
+            <h1>This is the content of my websites:</h1>
+            <table>
+                <tr>
+                    <th>Site</th>
+                    <th>Content</th>
+                </tr>
+                <tr>
+                    <td>All</td>
+                    <td>The first TAB triggers "Skip to Main Content", following TABS go into the navigation bar</td>
+                </tr>
+                 <tr>
+                    <td>All</td>
+                    <td>All pages use a grid layout for the navigation, logo, main back-to-top and footer areas</td>
+                </tr>
+                <tr>
+                    <td>Site One</td>
+                    <td>hover-effect-flex-wrap-cats</td>
+                </tr>
+                <tr>
+                    <td>Site Two</td>
+                    <td>centered background image and content centered within it plus a hover-transform-effect</td>
+                </tr>
+                <tr>
+                    <td>Site Three</td>
+                    <td>grid-columns with n-th child</td>
+                </tr>
+            </table>
+            <h1>This was the CSS code I used for my litte website</h1>
+            <pre>
 <code class="listing">
-nav {
+.navigation {
+    grid-area: navigation;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -30,35 +64,199 @@ nav {
     border-color: darkslateblue;
 }
 
-nav button {
-    font-family: fantasy;
-    font-size: larger;
-    color:darkslateblue;
+
+.logo {
+    grid-area: logo;
+    justify-self: center;
+    display: block;
+    border-style: solid;
     border-color: darkslateblue;
     background-color:antiquewhite;
 }
 
-h1, h2, h3, div {
+.main {grid-area: main;}
+
+.footer {
+    grid-area: footer;
+    background-image: url("../images/cats-footer.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    padding: 20px;
+    color:darkslateblue;
+    background-color:antiquewhite;
+    text-decoration: none;
+    transition: transform;
+    height: 80px;
+}
+
+.footer-content {
+    font-family: fantasy;
+    font-size: larger;
+    background-color:antiquewhite;
+    border-style: solid;
+    border-color: darkslateblue;
+}
+
+.back-to-top {
+    grid-area: back-to-top;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+    'navigation navigation navigation navigation navigation logo'
+    'main main main main main main'
+    'back-to-top footer footer footer footer footer';
     margin-left: 25px;
+    padding: 25px;
+}
+
+.navigation a {
+    display: inline-block;
+    padding: 20px;
+    font-family: fantasy;
+    font-size: larger;
+    color:darkslateblue;
+    border-style: solid;
+    border-color: darkslateblue;
+    background-color:antiquewhite;
+    text-decoration: none;
+    transition: transform;
+}
+
+.navigation a:hover {
+    background-color: darkslateblue;
+    color: antiquewhite;
+    border-color: antiquewhite;
+    transform: scale(1.3);
 }
 
 .listing {
     display: flex;
     font-family: 'Courier New', Courier, monospace;
     color: darkslateblue;
+    background-color:aliceblue;
     border-style: solid;
-    margin: 25px;
     padding: 25px;
+}
+
+.skip-to-main-content {
+    position: absolute;
+    left: -1000px;
+}
+
+.skip-to-main-content:focus-visible {
+    left: 10px;
+    font-size: x-large;
+    border-style: solid;
+    border-color: darkslateblue;
+    background-color:antiquewhite;
+}
+
+.cats1 {
+    background-image: url("../images/cats-background35opacity.png");
+    min-height: 800px;
+}
+
+.cats2 {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../images/cats2background.png");
+    background-repeat: no-repeat;
+    height: 1920px;
+    background-position: center center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: fantasy;
+    font-size: x-large;
+}
+
+.cats3 {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30% 30%;
+    margin: 5%;
+    font-family: fantasy;
+    font-size: x-large;
+}
+
+.cats3 img:nth-child(3n) {
+    border-style: solid;
+    transform: rotateY(180deg);
+    background-color: aliceblue;
+}
+
+.cats3 img:nth-child(5n) {
+    border-style: solid;
+    transform: rotateX(180deg);
+    background-color:antiquewhite;
+    border-radius: 10%;
+}
+
+.cats1-content {
+    display: flex-wrap;
+}
+
+.cat-single-grow {
+    display: inline-block;
+    transition: transform;
+}
+
+.cat-single-grow:hover {
+    transform: scale(1.5);
+}
+
+.cat-single-shrink {
+    display: inline-block;
+    transition: transform;
+}
+
+.cat-single-shrink:hover {
+    transform: scale(0.5);
+}
+
+#yellow-cat img {
+    transition-property: border-radius;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+#yellow-cat:hover img {
+    border-radius: 100%;
+}
+
+i {
+    color: gray;
+}
+
+table, th, td {
+    padding: 5px;
+    border-style: groove;
+    border-collapse: collapse;
+    border-color: darkslateblue;
+    color: darkslateblue;
+    background-color: aliceblue;
+    font-size: x-large;
 }
 </code>
 </pre>
 
-<div>
-    I created a class for listings and used &lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;<br>
-    pre: preformatted text, linebreaks, whitespaces are shown<br>
-    code: marks the text as code
-</div>
+            <div>
+                I created a class for listings and used &lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;<br>
+                pre: preformatted text, linebreaks, whitespaces are shown<br>
+                code: marks the text as code
+            </div>
 
+
+        </main>
+    </div>
 </body>
 
 </html>
